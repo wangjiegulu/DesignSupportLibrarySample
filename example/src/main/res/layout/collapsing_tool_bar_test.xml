@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <!-- Your Scrollable View -->
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/collapsing_tool_bar_test_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+    <!--
+        scroll： 这个标志会被设置到所有希望滚出屏幕的视图上，如果不设置这一标志，则视图会被一直保留在屏幕顶部。
+        enterAlways： 这个标志会确保任何下滑滚屏都会触发视图的展现，等于开启了一种「快速返回」模式。
+        enterAlwaysCollapsed： 如果设置了 minHeight 和这个标志，你的视图通常会折叠显示，只有当滚动视图已经到达了它的顶点以后才会打开到完整高度。
+        exitUntilCollapsed： 这个标志会导致视图在退出之前，一直被锁定。
+        注意一点：所有设置了 scroll 标志的视图必须在未设该标志的视图之前进行声明，这样可以确保所有的滚动视图都从顶部退出，而固定元素都不受影响。
+     -->
+    <android.support.design.widget.AppBarLayout
+            android:id="@+id/collapsing_tool_bar_test_abl"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="192dp"
+            >
+
+        <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/collapsing_tool_bar_test_ctl"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                android:fitsSystemWindows="true"
+                app:contentScrim="?attr/colorPrimary"
+                app:expandedTitleMarginStart="48dp"
+                app:expandedTitleMarginEnd="64dp"
+                >
+
+            <ImageView
+                    android:id="@+id/back_drop"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ic_launcher"
+                    android:fitsSystemWindows="true"
+                    />
+
+            <android.support.v7.widget.Toolbar
+                    android:id="@+id/collapsing_tool_bar_test_tb"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                    app:layout_collapseMode="parallax"
+                    app:layout_collapseParallaxMultiplier="0.7"
+                    />
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <android.support.design.widget.FloatingActionButton
+            android:id="@+id/collapsing_tool_bar_test_fab"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            app:layout_anchor="@id/collapsing_tool_bar_test_abl"
+            app:layout_anchorGravity="bottom|right|end"
+            android:src="@android:drawable/ic_btn_speak_now"
+            android:layout_margin="15dp"
+            android:clickable="true"/>
+
+
+</android.support.design.widget.CoordinatorLayout>

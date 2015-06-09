@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <android.support.design.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <!-- Your Scrollable View -->
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/coordinator_layout_test_rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+        <!--
+            scroll： 这个标志会被设置到所有希望滚出屏幕的视图上，如果不设置这一标志，则视图会被一直保留在屏幕顶部。
+            enterAlways： 这个标志会确保任何下滑滚屏都会触发视图的展现，等于开启了一种「快速返回」模式。
+            enterAlwaysCollapsed： 如果设置了 minHeight 和这个标志，你的视图通常会折叠显示，只有当滚动视图已经到达了它的顶点以后才会打开到完整高度。
+            exitUntilCollapsed： 这个标志会导致视图在退出之前，一直被锁定。
+            注意一点：所有设置了 scroll 标志的视图必须在未设该标志的视图之前进行声明，这样可以确保所有的滚动视图都从顶部退出，而固定元素都不受影响。
+         -->
+        <android.support.design.widget.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <android.support.v7.widget.Toolbar
+                    android:id="@+id/coordinator_layout_test_tb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_scrollFlags="scroll|enterAlways"/>
+
+            <android.support.design.widget.TabLayout
+                    android:id="@+id/coordinator_layout_test_tl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_scrollFlags="exitUntilCollapsed"/>
+
+        </android.support.design.widget.AppBarLayout>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</LinearLayout>

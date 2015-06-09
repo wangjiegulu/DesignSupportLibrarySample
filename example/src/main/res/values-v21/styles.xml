@@ -1,0 +1,23 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="AppTheme.Base">
+</style>
+
+    <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+
+        <!--Navigation bar color-->
+        <item name="android:navigationBarColor">@color/color_primary</item>
+        <!-- Actionbar color -->
+        <item name="android:colorPrimary">@color/color_primary</item>
+        <!--Status bar color-->
+        <item name="android:colorPrimaryDark">@color/color_primary_dark</item>
+        <!--Window color-->
+        <item name="android:windowBackground">@color/color_window</item>
+    </style>
+
+
+
+</resources>
